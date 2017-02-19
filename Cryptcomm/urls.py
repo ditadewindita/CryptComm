@@ -24,7 +24,7 @@ from django.contrib.auth import views
 urlpatterns = [
     url(r'^chat/', include('chat.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index),
+    url(r'^$', welcome),
     url(r'^login/$', register),
     url(r'^logout/$', logout_page),
     url(r'^accounts/login/$', views.login, name='login'),  # If user is not login it will redirect to login page

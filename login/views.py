@@ -43,6 +43,8 @@ def logout_page(request):
     logout(request)
     return HttpResponseRedirect('/accounts/login')
 
+def welcome(request):
+    return render(request, "index.html")
 
 
 @login_required
