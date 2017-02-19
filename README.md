@@ -1,7 +1,7 @@
 # CryptComm
 Author: Haerunnisa Dewindita
 
-LAN based encrypted messaging system created during HackFSU. 
+CryptComm is a LAN based encrypted messaging system created during HackFSU. 
 Front-end done in HTML/CSS with Bootstrap and Jinja. Back-end done with Python and SQL with a Django Framework.
 
 Repository currently only holds website with encrypted user login.
