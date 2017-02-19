@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+
+    {% load i18n %}
+    <div class="login-page">
+        <div class="form">
+
+            <form class="register-form" id="register" method="post" action="{% url 'register' %}">
+                {% csrf_token %}
+
+                {{ form1.username.errors }}
+                <input type="text" name="username" placeholder="Username"/>
+                {{ form1.email.errors }}
+                <input type="text" name="email" placeholder="Email"/>
+                {{ form1.password1.errors }}
+                <input type="password" name="password1" placeholder="Password"/>
+                {{ form1.password2.errors }}
+                <input type="password" name="password2" placeholder="Password (again)"/>
+                <input type="submit" value="Create"/>
+
+                <p class="message"> <a onclick="myFunction('login')">Login</a></p>
+            </form>
+            <form class="login-form" method="post" action="{% url 'login' %}" id="login">{% csrf_token %}
+                {% if form.errors %}
+                    <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+                <input type="text" name="username" placeholder="Username"/>
+                <input type="password" name="password" placeholder="Password"/>
+                <button>login</button>
+                <p class="message"> <a onclick="myFunction('register')">Create an account</a></p>
+                <p class="message"> <a onclick="myFunction('forgot')">Forgot account?</a></p>
+            </form>
+            <form class="register-form" method="post" action="{% url 'forgot' %}" id="forgot">{% csrf_token %}
+                {{ form2.email.errors }}
+                <input type="text" name="email" placeholder="Email">
+                <input type="submit" value="{% trans 'Reset my password' %}" />
+                <p class="message"> <a onclick="myFunction('login')">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -15,10 +15,28 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from chat import views
+from django.contrib.auth.views import password_reset, password_reset_done, password_reset_confirm
+
+from chat.views import index
+from login.views import *
+from django.contrib.auth import views
 
 urlpatterns = [
     url(r'^chat/', include('chat.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index),
+    url(r'^$', index),
+    url(r'^login/$', register),
+    url(r'^logout/$', logout_page),
+    url(r'^accounts/login/$', views.login, name='login'),  # If user is not login it will redirect to login page
+    url(r'^accounts/logout/$', views.logout, {'next_page': '/accounts/login'}),
+    url(r'^register/$', register, name='register'),
+    url(r'^forgot/$', password_reset,
+        {"template_name": "registration/login.html", "subject_template_name": "registration/subject_name.txt"},
+        name='forgot'),
+    url(r'^forgot/passwordsent/$', password_reset_done, {"template_name": "registration/confirm.html"},
+        name='password_reset_done'),
+    url(r'^forgot/passwordconfirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$', password_reset_confirm,
+        {"template_name": "registration/confirm.html"}, name='password_reset_confirm'),
+    url(r'^register/success/$', register_success),
+    url(r'^accounts/profile/$', home),
 ]
