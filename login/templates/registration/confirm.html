@@ -1,9 +1,22 @@
-{% extends "base.html" %}
-{% block title %}Password reset{% endblock %}
-{% block head %}
-Password Reset
+{% extends 'base.html' %}
+{% block title %}
+    CryptComm
 {% endblock %}
+
 {% block content %}
-    Password reset was sent to your email!
-    <a href="/">Login</a>
+    <div class="container-fluid">
+        <div class="top-main">
+            <div class="row">
+                <div class="col-xs-12 col-md-12" style="text-align:center">
+
+                    <h1>Success!</h1>
+                    <br>Password reset instructions have been sent to your email.
+
+                </div>
+                <div class="col-xs-12 col-md-12" style="text-align:center; margin-top:5%; font-size:20px">
+                    <span class="glyphicon glyphicon-console"></span> <a href="/login">LOGIN</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
