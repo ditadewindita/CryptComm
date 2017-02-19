@@ -6,40 +6,51 @@
 {% block content %}
 
     {% load i18n %}
-    <div class="login-page">
-        <div class="form">
 
-            <form class="register-form" id="register" method="post" action="{% url 'register' %}">
-                {% csrf_token %}
+    <div class="container-fluid">
+        <div class="login-page">
+            <div class="row">
+                <div class="col-xs-12 col-md-12" style="text-align:center">
+                        <h1>LOGIN</h1>
+                        <div class="form">
 
-                {{ form1.username.errors }}
-                <input type="text" name="username" placeholder="Username"/>
-                {{ form1.email.errors }}
-                <input type="text" name="email" placeholder="Email"/>
-                {{ form1.password1.errors }}
-                <input type="password" name="password1" placeholder="Password"/>
-                {{ form1.password2.errors }}
-                <input type="password" name="password2" placeholder="Password (again)"/>
-                <input type="submit" value="Create"/>
+                            <form class="register-form" id="register" method="post" action="{% url 'register' %}">
+                            {% csrf_token %}
+                                <p>{{ form1.username.errors.as_text }}
+                                <input type="text" name="username" placeholder="Username"/>
+                                <p>{{ form1.email.errors.as_text }}
+                                <input type="text" name="email" placeholder="Email"/>
+                                <p>{{ form1.password1.errors.as_text }}
+                                <input type="password" name="password1" placeholder="Password"/>
+                                <p>{{ form1.password2.errors.as_text }}
+                                <input type="password" name="password2" placeholder="Re-enter password"/>
+                                <input type="submit" value="Create"/>
 
-                <p class="message"> <a onclick="myFunction('login')">Login</a></p>
-            </form>
-            <form class="login-form" method="post" action="{% url 'login' %}" id="login">{% csrf_token %}
-                {% if form.errors %}
-                    <p>Your username and password didn't match. Please try again.</p>
-                {% endif %}
-                <input type="text" name="username" placeholder="Username"/>
-                <input type="password" name="password" placeholder="Password"/>
-                <button>login</button>
-                <p class="message"> <a onclick="myFunction('register')">Create an account</a></p>
-                <p class="message"> <a onclick="myFunction('forgot')">Forgot account?</a></p>
-            </form>
-            <form class="register-form" method="post" action="{% url 'forgot' %}" id="forgot">{% csrf_token %}
-                {{ form2.email.errors }}
-                <input type="text" name="email" placeholder="Email">
-                <input type="submit" value="{% trans 'Reset my password' %}" />
-                <p class="message"> <a onclick="myFunction('login')">Login</a></p>
-            </form>
+                                <p class="message" style="cursor:pointer"> <a onclick="accountCreate('login')">Login</a></p>
+                            </form>
+
+                            <form class="login-form" method="post" action="{% url 'login' %}" id="login">{% csrf_token %}
+                                {% if form.errors %}
+                                    <p>Your username and password didn't match. Please try again.</p>
+                                {% endif %}
+                                <input type="text" name="username" placeholder="Username"/>
+                                <input type="password" name="password" placeholder="Password"/>
+                                <input type="submit" value="Login"/>
+                                <p class="message" style="cursor:pointer"> <a onclick="accountCreate('register')">Create an account</a></p>
+                                <p class="message" style="cursor:pointer"> <a onclick="accountCreate('forgot')">Forgot password?</a></p>
+                            </form>
+                            <form class="register-form" method="post" action="{% url 'forgot' %}" id="forgot">{% csrf_token %}
+                                {{ form2.email.errors.as_text }}
+                                <input type="text" name="email" placeholder="Email">
+                                <input type="submit" value="{% trans 'Reset my password' %}" />
+                                <p class="message" style="cursor:pointer"> <a onclick="accountCreate('login')">Login</a></p>
+                            </form>
+                        </div>
+                    </div>
+                <div class="col-xs-12 col-md-12" style="text-align:center; margin-top:5%; font-size:15px">
+                    <span class="glyphicon glyphicon-console"></span> <a href="/">HOME</a>
+                </div>
+            </div>
         </div>
     </div>
 

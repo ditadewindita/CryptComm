@@ -1,9 +1,23 @@
-{% extends "base.html" %}
-{% block title %}Registration Successful{% endblock %}
-{% block head %}
- Registration Completed Successfully
+{% extends 'base.html' %}
+{% block title %}
+    CryptComm
 {% endblock %}
+
 {% block content %}
-    Thank you for registering.
-    <a href="/">Login</a> 
+    <div class="container-fluid">
+        <div class="top-main">
+            <div class="row">
+                <div class="col-xs-12 col-md-12" style="text-align:center">
+
+                    <h1>Complete!</h1>
+                    <br>You have registered successfully and can login <a href="/login">here</a>.
+
+                </div>
+                <div class="col-xs-12 col-md-12" style="text-align:center; margin-top:5%; font-size:20px">
+                    <span class="glyphicon glyphicon-console"></span> <a href="/">HOME</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
