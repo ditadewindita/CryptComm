@@ -1,17 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400');
 
 body {
-    background-color: #333333;
+    background-color: #333;
     font-family: 'Roboto Mono', monospace;
     font-size:12px;
     line-height:15px;
     color:#fff;
-    font-weight:100;
+}
+
+a {
+    color:#4cae4c;
+}
+
+a:hover {
+    color:#aaa;
 }
 
 .top-main {
     text-align: center;
-    margin-top:20%;
+    margin-top:15%;
 }
 
 .top-main h1 {
@@ -19,6 +26,36 @@ body {
     font-weight: 300;
     color:#40D051;
     letter-spacing:10px;
+}
+
+.login-page {
+    margin-top:8%;
+}
+
+.register-form {
+    display:none;
+}
+
+.form {
+    position:relative;
+    margin-top:3%;
+    width:18%;
+    left:50%;
+    margin-left:-110px;
+    text-align:center;
+    padding:10px;
+}
+
+.errorlist {
+    margin-left:4px;
+    list-style: none;
+}
+
+.form input {
+    padding:10px;
+    border:none;
+    background-color:#555;
+    margin-bottom:10px;
 }
 
 ::-moz-selection {
@@ -30,4 +67,5 @@ body {
     background:#000;
     color:#fff;
 }
+
 

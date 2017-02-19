@@ -123,3 +123,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = 'chat/static/'
 
+#Email server to send the email resets.
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST ='smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'cryptcomm.service@gmail.com'
+EMAIL_HOST_PASSWORD = 'cryptcomm123' #This is not your gmail password.
+EMAIL_USE_TLS = True
+
